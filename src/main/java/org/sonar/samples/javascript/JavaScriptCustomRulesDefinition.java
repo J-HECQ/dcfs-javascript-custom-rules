@@ -50,6 +50,8 @@ public class JavaScriptCustomRulesDefinition extends CustomJavaScriptRulesDefini
    */
   @Override
   public Class[] checkClasses() {
-    return new Class[] {ForbiddenFunctionUseCheck.class, OtherForbiddenFunctionUseCheck.class};
+		return new Class[] { DataGridCellsOperateCheck.class,
+				AwaitFunctionUseCheck.class, SetTimeoutFunctionUseCheck.class,
+				NoBraceFunctionUseCheck.class };
   }
 }
