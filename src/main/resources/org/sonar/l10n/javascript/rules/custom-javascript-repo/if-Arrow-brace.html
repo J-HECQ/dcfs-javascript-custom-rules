@@ -1,0 +1,23 @@
+<p>使用if或者箭头函数时，即使只有一行代码也要使用大括号 {},来定义代码块。</p>
+<pre> 
+// Noncompliant  
+if(condition)
+	doSomeThing();
+	
+func() => doSmoeThing();
+
+() => doSomeThing();
+
+</pre>
+
+<p>建议使用大括号来指定代码块</p>
+<pre>
+// Ok
+if(condition){
+	doSomeThing();
+}
+
+func() => {doSmoeThing();}
+
+() => {doSomeThing();}
+</pre>

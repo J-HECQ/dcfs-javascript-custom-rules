@@ -33,7 +33,7 @@ public class JavaScriptCustomRulesDefinition extends CustomJavaScriptRulesDefini
    */
   @Override
   public String repositoryName() {
-    return "MyCompany Custom Repository";
+		return "DCITS自定义JavaScript规则";
   }
 
   /**

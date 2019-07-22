@@ -1,0 +1,34 @@
+<p>异步JS：async/await 必须成对出现，否则运行时抛出异常。 </p>
+<pre> 
+// Noncompliant 
+function run1() {
+	await waitFiles();
+}
+
+function run2(){
+	waitFiles(function (){
+		await doSomeThing();
+	});
+}
+
+async function run3(){
+	waitFiles(function (){
+		await doSomeThing();
+	});
+}
+</pre>
+
+<p>请使用ColumnName获取行列索引，进行操作</p>
+<pre>
+
+// OK
+async function run4() {
+	await waitFiles();
+}
+
+function run5(){
+	waitFiles(async function (){
+		await doSomeThing();
+	});
+}
+</pre>
