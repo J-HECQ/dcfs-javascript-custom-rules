@@ -45,7 +45,7 @@ import org.sonar.squidbridge.annotations.SqaleSubCharacteristic;
  * {@link #nodesToVisit()}. We can then override visitNode or leaveNode: these
  * methods will be called for all nodes of the kinds we subscribed to.
  */
-@Rule(key = "await-async", priority = Priority.MAJOR, name = "异步JS：async/await 必须成对出现，否则运行时抛出异常。", tags = { "convention","es2015" }, description = "异步JS：async/await 必须成对出现，否则运行时抛出异常。")
+@Rule(key = "await-async", priority = Priority.MAJOR, name = "如果表达式出  await 关键字，则父方法必须使用async修饰 ，否则运行时抛出异常", tags = { "convention","es2015" }, description = "如果表达式出  await 关键字，则父方法必须使用async修饰 ，否则运行时抛出异常")
 @SqaleSubCharacteristic(RulesDefinition.SubCharacteristics.DATA_RELIABILITY)
 @SqaleConstantRemediation("5min")
 public class AwaitFunctionUseCheck extends SubscriptionVisitorCheck {
@@ -64,7 +64,7 @@ public class AwaitFunctionUseCheck extends SubscriptionVisitorCheck {
 			if (null != parentTree && null != parentTree.asyncToken()) {
 				// System.out.println("OK");
 			} else {
-				addIssue(parentTree, "异步JS：async/await 必须成对出现，否则运行时抛出异常。");
+				addIssue(parentTree, "如果表达式出   await 关键字，则父方法必须使用async修饰 ，否则运行时抛出异常");
 				// System.err.println("Fail");
 			}
 		}

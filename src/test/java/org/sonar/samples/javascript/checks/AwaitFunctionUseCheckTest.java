@@ -31,9 +31,9 @@ public class AwaitFunctionUseCheckTest {
   @Test
   public void test() throws Exception {
     JavaScriptCheckVerifier.issues(new AwaitFunctionUseCheck(), new File("src/test/resources/checks/awaitFunctionUseCheck.js"))
-    .next().withMessage("异步JS：async/await 必须成对出现，否则运行时抛出异常。")
-    .next().withMessage("异步JS：async/await 必须成对出现，否则运行时抛出异常。")
-    .next().withMessage("异步JS：async/await 必须成对出现，否则运行时抛出异常。")
+    .next().withMessage("如果表达式出   await 关键字，则父方法必须使用async修饰 ，否则运行时抛出异常")
+    .next().withMessage("如果表达式出   await 关键字，则父方法必须使用async修饰 ，否则运行时抛出异常")
+    .next().withMessage("如果表达式出   await 关键字，则父方法必须使用async修饰 ，否则运行时抛出异常")
     .noMore();
   }
 
