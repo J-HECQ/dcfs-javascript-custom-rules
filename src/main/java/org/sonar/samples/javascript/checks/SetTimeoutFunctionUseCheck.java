@@ -19,27 +19,22 @@
  */
 package org.sonar.samples.javascript.checks;
 
-import com.google.common.collect.ImmutableSet;
-
 import java.util.Set;
 
 import org.sonar.api.server.rule.RulesDefinition;
 import org.sonar.check.Priority;
 import org.sonar.check.Rule;
-import org.sonar.javascript.tree.KindSet;
-import org.sonar.plugins.javascript.api.tree.Tree;
 import org.sonar.plugins.javascript.api.tree.Tree.Kind;
-import org.sonar.plugins.javascript.api.tree.declaration.FunctionDeclarationTree;
-import org.sonar.plugins.javascript.api.tree.declaration.FunctionTree;
 import org.sonar.plugins.javascript.api.tree.expression.ArgumentListTree;
 import org.sonar.plugins.javascript.api.tree.expression.CallExpressionTree;
-import org.sonar.plugins.javascript.api.tree.expression.DotMemberExpressionTree;
 import org.sonar.plugins.javascript.api.tree.expression.ExpressionTree;
 import org.sonar.plugins.javascript.api.tree.expression.IdentifierTree;
 import org.sonar.plugins.javascript.api.visitors.DoubleDispatchVisitorCheck;
 import org.sonar.plugins.javascript.api.visitors.SubscriptionVisitorCheck;
 import org.sonar.squidbridge.annotations.SqaleConstantRemediation;
 import org.sonar.squidbridge.annotations.SqaleSubCharacteristic;
+
+import com.google.common.collect.ImmutableSet;
 
 /**
  * Example of a check extending {@link SubscriptionVisitorCheck}.
@@ -55,7 +50,7 @@ import org.sonar.squidbridge.annotations.SqaleSubCharacteristic;
 public class SetTimeoutFunctionUseCheck extends DoubleDispatchVisitorCheck  {
 
 	private static final Set<String> FORBIDDEN_FUNCTIONS = ImmutableSet.of("setTimeout","setInterval");
- 
+
 	@Override
 	public void visitCallExpression(CallExpressionTree tree) { 
 		if(tree.callee().is(Kind.IDENTIFIER_REFERENCE)){
